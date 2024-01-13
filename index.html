@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>clone</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/brands.min.css">
+</head>
+<div>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <!-- Logo -->
+        <a class="navbar-brand" href="#">
+            <img src="data:image/png;base64,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" width="200" height="60" class="d-inline-block align-top" alt="Your Logo">
+        </a>
+
+        <!-- Toggle button for small screens -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navigation links -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Microsoft365<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Teams</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Copilot</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Windows</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Surface</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#">Xbox</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#">Support</a>
+              </li>
+            </ul>
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                All Microsoft
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">PC and Devices</a></li>
+                <li><a class="dropdown-item" href="#">Software</a></li>
+                <li><a class="dropdown-item" href="#">Entertainment</a></li>
+               
+              </ul>
+            </div>
+            <div class="icon">
+                <a href=""><i class="bi bi-search"></i><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                </svg></a>
+                <a href=""><i class="bi bi-cart"></i><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                  <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+                </svg></a>
+                <a href=""><i class="bi bi-person-circle"></i><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                </svg></a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+<div id="asst">
+    <a href="">Require assistance with Microsoft 365? Call 0008004402127 to inquire or make a purchase.</a>
+</div>
+<div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 1"></button>
+    </div>
+    <div class="carousel-inner" data-bs-interval="1000">
+      <div class="carousel-item active">
+        <img src="./Screenshot (24).png" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="./Screenshot (25).png" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <div class="container1 text-center">
+    <div class="row">
+      <div class="col">
+        <i class="bi bi-microsoft"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="49" fill="currentColor" class="bi bi-microsoft" viewBox="0 0 16 16">
+          <path d="M7.462 0H0v7.19h7.462zM16 0H8.538v7.19H16zM7.462 8.211H0V16h7.462zm8.538 0H8.538V16H16z"/>
+        </svg>
+        <br>
+        
+        <a href="">choose your Microsoft365 days</a>
+      </div>
+      <div class="col">
+        <i class="bi bi-xbox"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="49" fill="currentColor" class="bi bi-xbox" viewBox="0 0 16 16">
+          <path d="M7.202 15.967a8 8 0 0 1-3.552-1.26c-.898-.585-1.101-.826-1.101-1.306 0-.965 1.062-2.656 2.879-4.583C6.459 7.723 7.897 6.44 8.052 6.475c.302.068 2.718 2.423 3.622 3.531 1.43 1.753 2.088 3.189 1.754 3.829-.254.486-1.83 1.437-2.987 1.802-.954.301-2.207.429-3.239.33m-5.866-3.57C.589 11.253.212 10.127.03 8.497c-.06-.539-.038-.846.137-1.95.218-1.377 1.002-2.97 1.945-3.95.401-.417.437-.427.926-.263.595.2 1.23.638 2.213 1.528l.574.519-.313.385C4.056 6.553 2.52 9.086 1.94 10.653c-.315.852-.442 1.707-.306 2.063.091.24.007.15-.3-.319Zm13.101.195c.074-.36-.019-1.02-.238-1.687-.473-1.443-2.055-4.128-3.508-5.953l-.457-.575.494-.454c.646-.593 1.095-.948 1.58-1.25.381-.237.927-.448 1.161-.448.145 0 .654.528 1.065 1.104a8.4 8.4 0 0 1 1.343 3.102c.153.728.166 2.286.024 3.012a9.5 9.5 0 0 1-.6 1.893c-.179.393-.624 1.156-.82 1.404-.1.128-.1.127-.043-.148ZM7.335 1.952c-.67-.34-1.704-.705-2.276-.803a4 4 0 0 0-.759-.043c-.471.024-.45 0 .306-.358A7.8 7.8 0 0 1 6.47.128c.8-.169 2.306-.17 3.094-.005.85.18 1.853.552 2.418.9l.168.103-.385-.02c-.766-.038-1.88.27-3.078.853-.361.176-.676.316-.699.312a12 12 0 0 1-.654-.319Z"/>
+        </svg><br>
+        <a href="">shop x-box games and consoles</a>
+      
+      </div>
+      <div class="col">
+        <i class="bi bi-microsoft"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="49" fill="currentColor" class="bi bi-microsoft" viewBox="0 0 16 16">
+          <path d="M7.462 0H0v7.19h7.462zM16 0H8.538v7.19H16zM7.462 8.211H0V16h7.462zm8.538 0H8.538V16H16z"/>
+        </svg>
+        <br>
+        <a href="">Get Windows11</a>
+      </div>
+      <div class="col">
+        <i class="bi bi-laptop"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="49" fill="currentColor" class="bi bi-laptop" viewBox="0 0 16 16">
+          <path d="M13.5 3a.5.5 0 0 1 .5.5V11H2V3.5a.5.5 0 0 1 .5-.5zm-11-1A1.5 1.5 0 0 0 1 3.5V12h14V3.5A1.5 1.5 0 0 0 13.5 2zM0 12.5h16a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 12.5"/>
+        </svg><br>
+        <a href="">Explore surface Devices</a>
+      </div>
+    </div>
+    
+  </div>
+ 
+ <div class="d-flex flex-row">
+    <div class="card" style="width: 18rem;">
+      <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/gldn-XSX-CP-Xbox-Series-X?wid=297&hei=167&fit=crop" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Xbox Series X</h5>
+        <p class="card-text">The fastest most powerful Xbox ever</p>
+        <a href="#" class="btn btn-primary">Shop Xbox Series X</a>
+      </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+      <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/gldn-XSS-CP-Xbox-Series-S-Evergreen?wid=297&hei=167&fit=crop" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Xbox Series S</h5>
+        <p class="card-text">Next Gen perfomance in the smallest x-box ever</p>
+        <a href="#" class="btn btn-primary">Shop Xbox Series S</a>
+      </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+      <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Content-Card-Surface-Laptop-5-M1-Platinum-01-1?wid=297&hei=167&fit=crop" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Surface laptop 5</h5>
+        <p class="card-text">Sophisticated style and multitasking speed powered by 12th Gen Intel® Core, with Windows 11.</p>
+        <a href="#" class="btn btn-primary">Learn More</a>
+      </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+      <img src="https://i.gadgets360cdn.com/large/microsoft_surface_laptop_go_2_winfuture_1694785108464.jpg" alt="">
+      <div class="card-body">
+        <h5 class="card-title">Surface Laptop Studio</h5>
+        <p class="card-text">Flex your creative muscle on the most powerful Surface Laptop. Now available with Windows 11.</p>
+        <a href="#" class="btn btn-primary">Learn More</a>
+      </div>
+    </div>
+ </div>
+ <div class="container2 text-center">
+  <div class="row">
+    <div id="blok" class="col">
+      <h3>Xbox Game Pass Ultimate</h3>
+        <p>Play new games on day one. Plus, enjoy hundreds of high-quality games with friends on console and PC.</p>
+        <a href="">Learn More</a></a>
+    </div>
+    <div class="col">
+      <a href="https://www.xbox.com/en-in/games/store/xbox-game-pass-ultimate/cfq7ttc0khs0?icid=mscom_marcom_MPH1a_GamePassUltimate"><img src="./Screenshot (26).png" alt="">
+      
+      </a>
+    </div>
+  </div>
+</div>
+</div>
+<h2>For business</h2>
+<div class="d-flex flex-row">
+  <div class="card" style="width: 18rem;">
+    <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/gldn-Surf-CP-SurfaceFamilyForBusiness?wid=297&hei=167&fit=crop" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Surface for Business</h5>
+      <p class="card-text">No matter what you do, there’s a Surface to help you do it.</p>
+      <a href="#" class="btn btn-primary">Shop now</a>
+    </div>
+  </div>
+  <div class="card" style="width: 18rem;">
+    <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/gldn-CP-Microsoft-Teams-Commercial?wid=297&hei=167&fit=crop" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Get Microsoft Teams for free</h5>
+      <p class="card-text">Online meetings, chat and shared cloud storage – all in one place.</p>
+      <a href="#" class="btn btn-primary">sign up for free</a>
+    </div>
+  </div>
+  <div class="card" style="width: 18rem;">
+    <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Content-Card-Azure-AI-Bloom?wid=297&hei=167&fit=crop" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Join the era of AI</h5>
+      <p class="card-text">Create, communicate, and code with the latest Microsoft AI solutions.</p>
+      <a href="#" class="btn btn-primary">Explore AI solutions</a>
+    </div>
+  </div>
+  <div class="card" style="width: 18rem;">
+    <img src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/JIC-DPS-CP01?wid=297&hei=167&fit=crop" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Welcome to your Windows 365 Cloud PC</h5>
+      <p class="card-text">Securely stream your Windows experience from the Microsoft cloud to any device.</p>
+      <a href="#" class="btn btn-primary">Get it today</a>
+    </div>
+  </div>
+</div>
+
+<h4>Follow Microsoft <a href=""><i class="bi bi-facebook"></i><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+  <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+</svg></a>
+<a href=""><i class="bi bi-twitter-x"></i><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
+  <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+</svg></a>
+<a href=""><i class="bi bi-youtube"></i><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
+  <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z"/>
+</svg></a>
+</h4>
+
+<footer class="text-center text-white" style="background-color: #ecece7">
+  <!-- Grid container -->
+    <!-- Section: Links -->
+    <section class="mt-5">
+      <!-- Grid row-->
+      <div class="row text-center d-flex justify-content-center pt-5">
+        <!-- Grid column -->
+        <div class="col-md-2">
+           <div class="text-uppercase">
+             <h6><a style="color: black;" href="">Whats new</a></h6>
+              <a style="color: black;" href="">Microsoft365</a>
+              <a style="color: black;" href="">Games</a>
+              <a style="color: black;" href="">Surface Pro</a>
+              <a style="color: black;" href="">Surface Laptop</a>
+              <!-- <a style="color: black;" href="">Windows11 Apps</a> -->
+           </div>
+                 
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-2">
+          <div class="text-uppercase">
+              <h6><a style="color: black;" href="">Microsoft Store</a></h6>
+              <a style="color: black;" href="">Account profile</a>
+              <a style="color: black;" href="">Download center</a>
+              <a style="color: black;" href="">Microsoft Store Support</a>
+              <!-- <a style="color: black;" href="">Returns</a>
+              <a style="color: black;" href="">Order Tracking</a> -->
+            
+          </div>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-2">
+          <div class="text-uppercase">
+            <h6><a style="color: black;" href="">Education</a></h6>
+             <a style="color: black;" href="">Microsoft in Education</a>
+              <a style="color: black;" href="">Devices for Education</a>
+              <!-- <a style="color: black;" href="">microsoft team for Education</a> -->
+              <!-- <a style="color: black;" href="">Office Education</a> -->
+              <a style="color: black;" href=""></a>
+          </div>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-2">
+          <div class="text-uppercase">
+            <h6><a style="color: black;" href="">Business</a></h6>
+              <a style="color: black;" href="">microsoft cloud</a>
+              <a style="color: black;" href="">microsoft security</a>
+              <a style="color: black;" href="">Azure</a>
+              <!-- <a style="color: black;" href="">Dynamic 365</a>
+              <a style="color: black;" href="">Microsoft365</a> -->
+        </div>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+       
+        <!-- Grid column -->
+        <div class="col-md-2">
+          <div class="text-uppercase">
+           <h6><a style="color: black;" href="#!">Developer & IT</a></h6>
+            <a style="color: black;" href="">Developer center</a>
+              <a style="color: black;" href="">Microsoft learn</a>
+              <a style="color: black;" href="">microsoft Tech community</a>
+              <!-- <a style="color: black;" href="">Azure marketplace</a>
+              <a style="color: black;" href="">Visual Studio</a> -->
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="text-uppercase">
+          <h6><a style="color: rgb(8, 8, 8);" href="#!">Company</a></h6>
+            <a style="color: black;" href="">Careers</a>
+              <a style="color: black;" href="">About Microsoft</a>
+              <a style="color: black;" href="">Company news</a>
+              <!-- <a style="color: black;" href="">Privacy at Microsoft</a>
+              <a style="color: black;" href="">Investors</a> -->
+        
+        </div>
+      </div>
+      <!-- Grid row-->
+    </section>
+    <!-- Section: Links -->
+
+    <hr class="my-5" />
+
+    <!-- Section: Text -->
+    <!-- Section: Text -->
+
+    <!-- Section: Social -->
+
+    <!-- Section: Social -->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div
+       class="text-center p-3"
+       style="background-color: rgba(151, 127, 127, 0.2)"
+       >
+    © 2023 Copyright:
+    <a class="text-white" href="https://mdbootstrap.com/"
+       >microsoft</a
+      >
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
+</div>
+
+
+<!-- Bootstrap JS and Popper.js (required for Bootstrap) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</html>
